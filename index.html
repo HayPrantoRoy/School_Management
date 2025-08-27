@@ -4,40 +4,96 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School Management System</title>
+<link rel="icon" href="logo.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Kalpurush:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&display=swap" rel="stylesheet">
 <style>
+    
     * {margin:0;padding:0;box-sizing:border-box;}
    body {
     font-size: 1.15em;
     font-family: "myriadpro-regular", Helvetica, sans-serif, Tahoma, SolaimanLipi, Kalpurush, Shonar Bangla, Arial, Arial, sans-serif;
     color: #222;
     background: white;
-    padding: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+
+header {
+  position: relative;
+   width: 100%;                /* full width */
+    height: 32vh; 
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Blurred background */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("background2.png") no-repeat center center;
+  background-size: cover;
+  z-index: -2;
+}
+
+.header-container {
+  display: flex;
+  width: 800px;          /* example */
+  margin-left: calc(100% - 750px - 200px); /* 200px from right */
 }
 
 
-    /* Header */
-    header {
-    background: url(unique_background2.jpg) no-repeat center center;
-    background-size: cover; /* makes it cover fully */
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    border-bottom: 1px solid #e0e0e0;
+
+
+.logo-area img {
+  width: 150px;
+  height: auto;
 }
 
-    .logo-area {display:flex;align-items:center;gap:15px;}
-    .logo-area img {width:80px;height:auto;}
-    .school-name h1 {font-size:26px;font-weight:600;color:#111;letter-spacing:0.5px;}
-    .school-name h2 {font-size:16px;font-weight:400;color:#666;text-transform:uppercase;}
+.school-name h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a50;
+  margin: 0;
+}
+
+.school-name h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #006633;
+}
+
+.school-name .established {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  margin: 6px 0;
+}
+
+.school-info {
+  margin-top: 8px;
+}
+
+.school-info p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
+  margin-top: -15px;
+  margin-left: -170px;
+}
+
 
     /* Navigation */
     nav {background:#ffffff;border-bottom:1px solid #e0e0e0;position:relative;}
     .nav-container {display:flex;justify-content:center;flex-wrap:wrap;}
     .nav-container a {
-        padding:14px 18px;
+        padding:14px 10px;
         text-decoration:none;
         color:#333;
         font-weight:500;
@@ -48,7 +104,7 @@
         content:"";
         position:absolute;
         left:50%;
-        bottom:6px;
+        bottom:15px;
         width:0%;
         height:2px;
         background:#111;
@@ -128,10 +184,19 @@
         bottom:0;
         left:0;
         right:0;
-        padding:10px;
-        background:rgba(0,0,0,0.8);
+        padding:100px;
+        background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
         color:white;
         font-size:14px;
+    }
+     .image-caption2 {
+        position:absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        padding:15px;
+        color:white;
+        font-size:18px;
     }
     .slider-nav {
         position:absolute;
@@ -164,61 +229,64 @@
     }
     .dot.active, .dot:hover {background-color:#717171;}
 
-    .left-col h2 {margin-top:15px;color:#a67c00;}
+    .left-col h2 {margin-top:15px;color:rgb(93, 195, 236);}
     .title-underline {
-        border-top:4px solid #ff9800;
+        border-top:4px solid rgb(93, 195, 236);
         width:60px;
         margin:5px 0 15px 0;
     }
     .left-col p {line-height:1.7;}
-.sidebar-container {
-    max-width: 400px;
-}
-
 .info-card {
-    margin-bottom: 12px;
-    background: white;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
 
 .card-title {
-    padding: 15px 18px;
-    background: white;
-    border-bottom: 1px solid #f0f0f0;
-    font-weight: 600;
-    color: #333;
-    border-radius: 8px 8px 0 0;
+  padding: 15px 18px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 600;
+  color: #333;
+  border-radius: 8px 8px 0 0;
 }
 
 .card-details {
-    display: block;
-    padding: 15px 18px;
-    background: #fafafa;
-    border-radius: 0 0 8px 8px;
+  padding: 0 18px;
+  background: #fafafa;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  height: 240px; /* 3 slots */
+  position: relative;
 }
 
-/* Notice Styles */
+.notice-wrapper {
+  transition: transform 0.6s ease-in-out;
+}
+
 .notice-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #eeeeee;
-}
-
-.notice-item:last-child {
-    border-bottom: none;
+  min-height: 80px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  opacity: 0; /* hidden at start */
 }
 
 .notice-date {
-    font-weight: 600;
-    color: #555;
-    font-size: 13px;
-    margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+  font-size: 13px;
+  margin-bottom: 5px;
 }
 
 .notice-text {
-    color: #666;
-    font-size: 14px;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
 }
 
 /* Routine Styles */
@@ -307,32 +375,6 @@
     font-size: 13px;
 }
 
-/* Result Styles */
-.result-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-}
-
-.result-item {
-    text-align: center;
-    padding: 15px 10px;
-    background: white;
-    border-radius: 8px;
-    border: 1px solid #e8e8e8;
-}
-
-.result-label {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 5px;
-}
-
-.result-number {
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-}
 
     /* Calendar */
     .calendar {
@@ -519,56 +561,330 @@
     }
 
     /* Responsive */
-    @media(max-width:768px) {
-        .school-name h1 {font-size:20px;}
-        .school-name h2 {font-size:14px;}
-        .mobile-toggle {display:block;}
-        .nav-container {
-            flex-direction:column;
-            max-height:0;
-            overflow:hidden;
-            transition:max-height 0.4s ease;
-        }
-        .nav-container.show {max-height:500px;}
-        .nav-container a {border-top:1px solid #e0e0e0;text-align:center;}
-        main {flex-direction:column;}
-        .footer-content {grid-template-columns:1fr;gap:20px;}
-    }
+    
 
      .right-col {flex:1;}
+
+   .teacher-card-container {
+  overflow: hidden;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 15px 0;
+  width: 420px;   /* fixed width */
+  position: relative;
+}
+
+.teacher-track {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  will-change: transform;
+}
+
+.teacher-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  min-width: 200px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.teacher-card:hover {
+  transform: translateY(-6px);
+}
+
+.teacher-card img {
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.teacher-card h4 {
+  font-size: 15px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.teacher-card p {
+  font-size: 13px;
+  color: #666;
+}
+
+.faculty-heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #333;
+  text-align: center;
+}
+
+.faculty-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.faculty-table th, 
+.faculty-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.faculty-table th {
+  background: #f4f4f4;
+  color: #222;
+  font-weight: bold;
+}
+
+.faculty-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.faculty-table tr:hover {
+  background: #f1f7ff;
+}
+
+.faculty-heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #333;
+  text-align: center;
+}
+
+.faculty-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.faculty-table th, 
+.faculty-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.faculty-table th {
+  background: #f4f4f4;
+  color: #222;
+  font-weight: bold;
+}
+
+.faculty-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.faculty-table tr:hover {
+  background: #f1f7ff;
+}
+
+.toggle-row {
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+  cursor: pointer;
+  background: #f9f9f9;
+}
+
+.toggle-row:hover {
+  background: #eaf4ff;
+}
+
+.hidden {
+  display: none;
+}
+
+ #educationPageBody {
+            font-family: 'Kalpurush', 'Tiro Bangla', sans-serif;
+            background: #ffffff;
+            padding-top: 20px;
+            color: #2c3e50;
+        }
+
+        .teacherQuotesMainWrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .sectionHeaderTitle {
+            text-align: center;
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #1a202c;
+            position: relative;
+        }
+
+        .sectionHeaderTitle::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #4a90e2;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .quotesFlexContainer {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .individualQuoteWrapper {
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+            transition: all 0.3s ease;
+            
+        }
+
+
+
+
+        .educatorProfileHeader {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #cacece;
+        }
+
+        .profileImageCircle {
+            width: 100px;
+            border-radius: 5%;
+            margin-right: 18px;
+            object-fit: cover;
+            border: 3px solid #f8fafc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .educatorNameAndRole h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #1a202c;
+        }
+
+        .teacherRoleLabel {
+            color: #64748b;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .inspirationalQuoteText {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #374151;
+            position: relative;
+            font-weight: 400;
+        }
+
+        .leftQuotationMark {
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 70px;
+            color: #cbd5e1;
+            font-family: Georgia, serif;
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .rightQuotationMark {
+            position: absolute;
+            bottom: -40px;
+            right: 10px;
+            font-size: 70px;
+            color: #cbd5e1;
+            font-family: Georgia, serif;
+            line-height: 1;
+            z-index: 1;
+        }
+
+        #headTeacherQuoteBox .leftQuotationMark,
+        #headTeacherQuoteBox .rightQuotationMark {
+            color: rgb(241, 236, 236);
+        }
+
+        #assistantEducatorQuoteBox .leftQuotationMark,
+        #assistantEducatorQuoteBox .rightQuotationMark {
+            color: rgb(241, 236, 236);
+        }
+
+        .quoteContentText {
+            position: relative;
+            z-index: 2;
+            font-size: 15px;
+            padding: 10px 0;
+        }
+
+        
+
 </style>
 </head>
 <body>
-
-<!-- Header -->
 <header>
+  <div class="header-container">
+    <!-- Left Logo -->
     <div class="logo-area">
-        <img src="http://static.vecteezy.com/system/resources/previews/039/607/001/non_2x/school-logo-design-template-free-vector.jpg" alt="School Logo">
-        <div class="school-name">
-            <h1>স্কুল ম্যানেজমেন্ট সিস্টেম</h1>
-            <h2>School Management System</h2>
-        </div>
+      <img src="logo.png" alt="School Logo">
     </div>
+
+    <!-- School Title -->
+    <div class="school-name">
+      <h1>জালকুড়ি হাই স্কুল এন্ড কলেজ</h1>
+      <h2>Jalkuri High School And College</h2>
+      <p class="established">স্থাপিত : ১৯৬৭ ইং</p>
+       <p style="color: black; font-size: 15px; margin-top: -8px;">
+      পঃ জালকুড়ি -১৪২০, থানা : সিদ্ধিরগঞ্জ, জেলা: নারায়ণগঞ্জ <br>
+      ফোন: ০১৩০৯১১২৪১১ | EIIN No- 112411 | বিদ্যালয় কোড-২৫৩০
+    </p>
+      
+    </div>
+  </div>
+
 </header>
+
 
 <!-- Navigation -->
 <nav>
     <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
     <div class="nav-container" id="navMenu">
-        <a href="#">হোম পেজ</a>
-        <a href="#">স্কুল প্রশাসন</a>
-        <a href="#">প্রাতিষ্ঠানিক কার্যক্রম</a>
-        <a href="#">গ্যালারি</a>
-        <a href="#">অন্যান্য তথ্য</a>
-        <a href="#">যোগাযোগ</a>
-        <a href="#">[[ ভর্তি তথ্য ]]</a>
-        <a href="#">[[ রেজাল্ট অনুসন্ধান ]]</a>
+        <a href="index.html">হোম পেজ</a>
+        <a href="gallery.html">বিদ্যালয় গ্যালারি</a>
+        <a href="teacher.html">শিক্ষক তালিকা</a>
+        <a href="info.html">স্কুল প্রশাসন</a>
+        <a href="info.html">প্রাতিষ্ঠানিক কার্যক্রম</a>
+        <a href="info.html">অন্যান্য তথ্য</a>
+        <a href="info.html">যোগাযোগ</a>
+        <a href="info.html">ভর্তি তথ্য</a>
+        <a href="info.html">রেজাল্ট অনুসন্ধান</a>
+        <a href="info.html">সংবাদ ও বিজ্ঞপ্তি</a>
     </div>
 </nav>
 
 <!-- News Bar -->
 <div class="news-bar">
-    <div class="news-title">খবর</div>
+    <div class="news-title">নোটিশ বোর্ড</div>
     <div class="news-text" id="typewriter"></div>
 </div>
 
@@ -577,13 +893,16 @@
     <!-- Left Column -->
     <div class="left-col">
         <div class="image-slider">
+          
             <div class="slider-container" id="sliderContainer">
-                <img src="school.jpg" alt="বিদ্যালয় গেট">
-                <img src="school.jpg" alt="প্রধান ভবন">
-                <img src="school.jpg" alt="শ্রেণীকক্ষ">
-                <img src="school.jpg" alt="খেলার মাঠ">
+
+                <img src="https://ssl.du.ac.bd/fontView/images/event/1683304527course-image-high.jpg" alt="বিদ্যালয় গেট">
+                <img src="https://vromonguide.com/wp-content/uploads/Rajshahi-College.jpg" alt="প্রধান ভবন">
+                <img src="https://tourbuzzbd.com/wp-content/uploads/2023/09/Rajshahi-University-05.jpg" alt="শ্রেণীকক্ষ">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Library_Building.JPG/640px-Library_Building.JPG" alt="খেলার মাঠ">
             </div>
-            <div class="image-caption" id="imageCaption">বিদ্যালয় গেট</div>
+            <div class="image-caption"></div>
+           <div class="image-caption2" id="imageCaption">বিদ্যালয় গেট</div>
             <button class="slider-nav prev" onclick="changeSlide(-1)">❮</button>
             <button class="slider-nav next" onclick="changeSlide(1)">❯</button>
         </div>
@@ -593,47 +912,62 @@
             <span class="dot" onclick="currentSlide(3)"></span>
             <span class="dot" onclick="currentSlide(4)"></span>
         </div>
-
         <h2>স্কুল ইতিহাস</h2>
         <div class="title-underline"></div>
-        <p>
-<strong><mark style="background:#fde047; color:#7f1d1d;">স্কুলের ইতিহাস</mark></strong> মানব সভ্যতার <u style="text-decoration-color:#2563eb;">অগ্রযাত্রার</u> এক দীর্ঘ ও <span style="color:#065f46;font-weight:bold;">গুরুত্বপূর্ণ অধ্যায়</span>। 
-প্রাচীনকালে বাংলার শিক্ষাব্যবস্থা মূলত <i>গুরুগৃহ</i>, <b>পাঠশালা</b>, টোল ও <em>মাদ্রাসা</em> ভিত্তিক ছিল, 
-যেখানে শিক্ষার্থীরা গুরুজনের তত্ত্বাবধানে বসে <mark style="background:#bef264;">ধর্মীয় শিক্ষা</mark>, <span style="color:green;font-weight:bold">নৈতিকতা</span>, সাহিত্য, গণিত, 
-জ্যোতির্বিজ্ঞান ও প্রাকৃতিক বিদ্যা শিখত। সেই সময়ে শিক্ষার মাধ্যম ছিল <u>মুখস্থ পদ্ধতি</u><sup>¹</sup>, হাতে লিখে অনুশীলন এবং 
-<b>শৃঙ্খলা</b> ও <strong>চরিত্র গঠন</strong>ের ওপর বিশেষ গুরুত্ব দেওয়া হতো।<br><br>
-
-মধ্যযুগে মুসলিম শাসনামলে <mark style="background:#fca5a5;">মাদ্রাসা শিক্ষা</mark> প্রসার লাভ করে, যেখানে <i>কোরআন</i>, <i>হাদিস</i>, আরবি সাহিত্য, 
-গণিত, যুক্তিবিদ্যা ও দর্শন পড়ানো হতো। এ সময়ের শিক্ষাব্যবস্থা মূলত ধর্মীয় জ্ঞান ও নৈতিক উন্নতির ওপর কেন্দ্রীভূত ছিল, তবে 
-<span style="color:blue;font-style:italic;">প্রাকৃতিক ও প্রয়োগমুখী বিদ্যা</span>র কিছু অংশও এতে অন্তর্ভুক্ত ছিল। 
-এই যুগে শিক্ষা ছিল সমাজে মর্যাদা ও নৈতিক দিক থেকে উন্নতির প্রধান মাধ্যম।<br><br>
-
-বাংলায় আধুনিক স্কুল ব্যবস্থার সূচনা ঘটে <strong>ব্রিটিশ শাসনামলে</strong>। বিশেষ করে <u>১৮৩৫</u> সালে লর্ড ম্যাকলে 
-<mark style="background:#c084fc;">ইংরেজি শিক্ষানীতি</mark> চালু করলে দেশব্যাপী আধুনিক ধাঁচের স্কুল ও কলেজ প্রতিষ্ঠিত হয়। 
-তখন ইংরেজি ভাষার পাশাপাশি <b>বিজ্ঞান</b>, <b>ভূগোল</b>, <b>ইতিহাস</b>, <b>গণিত</b> এবং অর্থনীতির মতো আধুনিক বিষয়গুলো পাঠ্যসূচিতে অন্তর্ভুক্ত হয়। 
-উনিশ শতকের শেষভাগে বাংলার অনেক <i>শিক্ষানুরাগী</i> ব্যক্তি ও সংগঠন স্কুল প্রতিষ্ঠায় গুরুত্বপূর্ণ ভূমিকা রাখেন, 
-যার মধ্যে <u>ঈশ্বরচন্দ্র বিদ্যাসাগর</u> নারীশিক্ষা ও প্রাথমিক শিক্ষা বিস্তারে <mark style="background:#fef3c7;">অসামান্য অবদান</mark> রাখেন।<br><br>
-
-দেশভাগের পর ১৯৪৭ সালে পূর্ববাংলার শিক্ষাব্যবস্থায় বড় পরিবর্তন আসে। 
-স্বাধীনতার পর <span style="color:purple;font-weight:bold">বাংলাদেশ সরকার</span> শিক্ষাকে মৌলিক অধিকার ঘোষণা করে এবং 
-প্রত্যন্ত অঞ্চলেও প্রাথমিক ও মাধ্যমিক বিদ্যালয় প্রতিষ্ঠার উদ্যোগ নেয়। 
-<em>জাতীয় শিক্ষা নীতি</em> প্রণয়ন, <u>বিনামূল্যে পাঠ্যবই</u> বিতরণ এবং মেয়েদের শিক্ষায় বিশেষ সুযোগ প্রদান—এসব পদক্ষেপ শিক্ষাবিস্তারকে ত্বরান্বিত করে। 
-এই সময় অনেক শিক্ষক ও শিক্ষা সংগঠন দেশের শিক্ষাক্ষেত্রে উন্নয়নে অবদান রাখেন।<br><br>
-
-বর্তমান যুগে <mark style="background:#bbf7d0;">আধুনিক বিদ্যালয়</mark> কেবল পাঠদানের স্থান নয়, বরং শিক্ষার্থীদের 
-<strong>সামাজিক</strong>, <strong>সাংস্কৃতিক</strong>, <strong>ক্রীড়া</strong> ও <strong>প্রযুক্তিগত</strong> দক্ষতা বিকাশের ক্ষেত্র হিসেবে গুরুত্বপূর্ণ ভূমিকা পালন করছে। 
-আধুনিক স্কুলে <span style="color:red">কম্পিউটার ল্যাব</span>, <u>বিজ্ঞানাগার</u>, <i>গ্রন্থাগার</i>, 
-<mark style="background:#fcd34d;">মাল্টিমিডিয়া ক্লাসরুম</mark>, <small>(অনলাইন শিক্ষা ব্যবস্থা)</small> ইত্যাদি সুযোগ-সুবিধা যুক্ত হয়েছে। 
-এর ফলে শিক্ষার্থীরা কেবল পাঠ্যপুস্তকভিত্তিক জ্ঞানেই সীমাবদ্ধ না থেকে বিশ্বব্যাপী তথ্য ও প্রযুক্তির সাথে তাল মিলিয়ে চলার সুযোগ পাচ্ছে।<br><br>
-
-ভবিষ্যতের স্কুল হবে আরও <span style="color:#0284c7;font-weight:bold;">ডিজিটাল</span> ও <span style="color:#16a34a;font-weight:bold;">প্রযুক্তিনির্ভর</span>, 
-যেখানে <u>ভার্চুয়াল রিয়ালিটি</u>, <u>কৃত্রিম বুদ্ধিমত্তা</u> এবং <u>গ্লোবাল ক্লাসরুম</u> ব্যবহার করে শিক্ষার্থীদের জন্য এক নতুন যুগের দ্বার উন্মোচিত হবে। 
-এই দীর্ঘ বিবর্তনের পথে আজকের স্কুল একটি 
-<mark style="background:#fde68a;">শিক্ষা, মানবিকতা ও নেতৃত্বগুণ বিকাশের</mark> প্রধান প্রতিষ্ঠান হয়ে দাঁড়িয়েছে, 
-যা আগামী প্রজন্মকে <u>জ্ঞান</u>, <u>নীতি</u> ও <u>মূল্যবোধ</u>ে সমৃদ্ধ করে দেশের উন্নয়ন ও অগ্রগতিতে <b>অপরিসীম অবদান</b> রাখছে।<br><br>
-
-<small style="color:#64748b;">¹ মুখস্থ পদ্ধতি: পাঠ্য বিষয় বারবার পড়ে মনে রাখা, যা প্রাচীন শিক্ষাব্যবস্থার মূল ভরসা ছিল।</small>
+        <p style="font-size:16px;">স্কুলের ইতিহাস মানব সভ্যতার অগ্রযাত্রার এক দীর্ঘ ও গুরুত্বপূর্ণ অধ্যায়। প্রাচীনকালে বাংলার শিক্ষাব্যবস্থা মূলত গুরুগৃহ, পাঠশালা, টোল ও মাদ্রাসা ভিত্তিক ছিল, যেখানে শিক্ষার্থীরা গুরুজনের তত্ত্বাবধানে বসে ধর্মীয় শিক্ষা, নৈতিকতা, সাহিত্য, গণিত, জ্যোতির্বিজ্ঞান ও প্রাকৃতিক বিদ্যা শিখত। সেই সময়ে শিক্ষার মাধ্যম ছিল মুখস্থ পদ্ধতি¹, হাতে লিখে অনুশীলন এবং শৃঙ্খলা ও চরিত্র গঠনের ওপর বিশেষ গুরুত্ব দেওয়া হতো।বাংলায় আধুনিক স্কুল ব্যবস্থার সূচনা ঘটে ব্রিটিশ শাসনামলে। বিশেষ করে ১৮৩৫ সালে লর্ড ম্যাকলে ইংরেজি শিক্ষানীতি চালু করলে দেশব্যাপী আধুনিক ধাঁচের স্কুল ও কলেজ প্রতিষ্ঠিত হয়। তখন ইংরেজি ভাষার পাশাপাশি বিজ্ঞান, ভূগোল, ইতিহাস, গণিত এবং অর্থনীতির মতো আধুনিক বিষয়গুলো পাঠ্যসূচিতে অন্তর্ভুক্ত হয়। উনিশ শতকের শেষভাগে বাংলার অনেক শিক্ষানুরাগী ব্যক্তি ও সংগঠন স্কুল প্রতিষ্ঠায় গুরুত্বপূর্ণ ভূমিকা রাখেন, যার মধ্যে ঈশ্বরচন্দ্র বিদ্যাসাগর নারীশিক্ষা ও প্রাথমিক শিক্ষা বিস্তারে অসামান্য অবদান রাখেন।
 </p>
+<div id="educationPageBody">
+    <div class="teacherQuotesMainWrapper">
+        <h1 class="sectionHeaderTitle">শিক্ষকদের অনুপ্রেরণামূলক বার্তা</h1>
+        
+        <div class="quotesFlexContainer">
+            <div class="individualQuoteWrapper" id="headTeacherQuoteBox">
+                <div class="educatorProfileHeader">
+                    <img src="https://jalkurihighschoolandcollege.edu.bd/upload/services/chairman_sir.jpg" alt="প্রধান শিক্ষক" class="profileImageCircle">
+                    <div class="educatorNameAndRole">
+                        <h3>মোহাম্মদ মোশারফ হোসেন</h3>
+                        <p class="teacherRoleLabel">প্রধান শিক্ষক</p>
+                    </div>
+                </div>
+                <div class="inspirationalQuoteText">
+                    <span class="leftQuotationMark">"</span>
+                    <div class="quoteContentText">
+                       মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর, ঢাকা, বাংলাদেশ কর্তৃক নির্দেশক্রমে অত্র বিদ্যালয়ের জন্য অতি অল্প সময়ে ডাইনামিক ওয়েভ সাইট তৈরি হয়েছে শুনে আমি মহান আল্লাহ তালার দরবারে শুকরিয়া আদায় করছি। বর্তমান সময়ে তথ্য ও প্রযুক্তি আমাদের হাতের নাগালে। দৈনন্দিন জীবনে লেনদেন, হিসাব-নিকাশ, লেখাপড়া, শিক্ষা-দীক্ষা, আদান-প্রদানসহ সকল প্রকার ব্যবস্থাপনা প্রশাসনিক ও একাডেমিক সব কিছুই তথ্য ও প্রযুক্তির আওতাধীন। জালকুড়ি হাই স্কুল এন্ড কলেজ এর নিজস্ব ওয়েভ সাইট থাকার কারণে ছাত্র, শিক্ষক, অভিভাবক, গভর্নিং বডি, এলাকাবাসী এবং শিক্ষার সাথে সংশ্লিষ্ট সকল মহল ও দপ্তর উপকৃত হবে। এতে শিখন-শিখানো আরও অধিক ফলপ্রসু হবে এবং বিদ্যালয়ের সকল কার্যক্রমে আরো অধিক স্বচ্ছতা ও জবাবদিহিতা নিশ্চিত হবে বলে আমি আশাবাদী। শিক্ষা প্রতিষ্ঠানের সকল প্রকার তথ্যবলী অতি সহজে সকলের দৃষ্টি গোচর হবে। স্বল্পসময়ে  বিদ্যালায়ের ইতিহাস, ছাত্র, শিক্ষক শিক্ষিকাদের তথ্য, সকল পরীক্ষার ফলাফল, বিভিন্ন পর্যায়ে প্রতিষ্ঠনের অর্জন ও প্রতিষ্ঠানের যাবতীয় তথ্য অত্র শিক্ষা প্রতিষ্ঠানের ওয়েব সাইটের মাধ্যমে জানতে পারবে. ডিজিটালাইজেশনের এ যুগে ওয়েব সাইটের বিকল্প নেই। 
+ 
+আমি জালকুড়ি হাই স্কুল এন্ড কলেজ এর সর্বাঙ্গীন সাফল্য কামনা করছি।
+
+
+এস এম কামাল হোসেন
+সভাপতি
+গভর্নিং বডি, জালকুড়ি হাই স্কুল এন্ড কলেজ
+                    </div>
+                    <span class="rightQuotationMark">"</span>
+                </div>
+            </div> 
+        </div> <br>
+
+        <div class="quotesFlexContainer">
+            <div class="individualQuoteWrapper" id="headTeacherQuoteBox">
+                <div class="educatorProfileHeader">
+                    <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/8.jpg" alt="প্রধান শিক্ষক" class="profileImageCircle">
+                    <div class="educatorNameAndRole">
+                        <h3>মোঃ আনোয়ারুল হক</h3>
+                        <p class="teacherRoleLabel">সহকারী প্রধান শিক্ষক</p>
+                    </div>
+                </div>
+                <div class="inspirationalQuoteText">
+                    <span class="leftQuotationMark">"</span>
+                    <div class="quoteContentText">
+শিক্ষা হলো জাতির মেরুদণ্ড। আমাদের প্রতিষ্ঠানে আমরা শুধু বই পড়ানো নয়, বরং প্রতিটি শিক্ষার্থীকে একজন আদর্শ মানুষ হিসেবে গড়ে তোলার চেষ্টা করি। নৈতিক শিক্ষা, বিজ্ঞানমনস্ক চিন্তা এবং দেশপ্রেমের মানসিকতা গড়ে তোলাই আমাদের মূল লক্ষ্য।
+                    </div>
+                    <span class="rightQuotationMark">"</span>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</div>
 
     </div>
 
@@ -641,83 +975,237 @@
     <div class="right-col">
         <!-- HTML -->
 <div class="sidebar-container">
-    <div class="info-card notice-card">
-        <div class="card-title">নোটিশ বোর্ড</div>
-        <div class="card-details">
-            <div class="notice-item">
-                <div class="notice-date">১৯ ডিসেম্বর ২০২৫</div>
-                <div class="notice-text">২০২৫ শিক্ষাবর্ষে ৬ষ্ঠ শ্রেণির ভর্তি নোটিশ</div>
-            </div>
-            <div class="notice-item">
-                <div class="notice-date">১৫ ডিসেম্বর ২০২৫</div>
-                <div class="notice-text">বার্ষিক পরীক্ষার সময়সূচি প্রকাশ</div>
-            </div>
-        </div>
+  <div class="info-card notice-card">
+  <div class="card-title">নোটিশ বোর্ড</div>
+  <div class="card-details">
+    <div class="notice-wrapper">
+      <div class="notice-item">
+        <div class="notice-date">১৯ ডিসেম্বর ২০২৫</div>
+        <div class="notice-text">২০২৫ শিক্ষাবর্ষে ৬ষ্ঠ শ্রেণির ভর্তি নোটিশ</div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-date">১৫ ডিসেম্বর ২০২৫</div>
+        <div class="notice-text">বার্ষিক পরীক্ষার সময়সূচি প্রকাশ</div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-date">১২ ডিসেম্বর ২০২৫</div>
+        <div class="notice-text">ক্রীড়া প্রতিযোগিতার ফলাফল প্রকাশ</div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-date">১০ ডিসেম্বর ২০২৫</div>
+        <div class="notice-text">শীতকালীন ছুটির বিজ্ঞপ্তি</div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="info-card routine-card">
-        <div class="card-title">ক্লাস রুটিন</div>
-        <div class="card-details">
-            <div class="routine-grid">
-                <div class="routine-day">সোমবার</div>
-                <div class="routine-time">৮:০০ - ১০:০০</div>
-                <div class="routine-subject">বাংলা</div>
-                
-                <div class="routine-day">মঙ্গলবার</div>
-                <div class="routine-time">৮:০০ - ১০:০০</div>
-                <div class="routine-subject">গণিত</div>
-                
-                <div class="routine-day">বুধবার</div>
-                <div class="routine-time">৮:০০ - ১০:০০</div>
-                <div class="routine-subject">ইংরেজি</div>
-            </div>
-        </div>
-    </div>
+
 
     
+<div class="card-title">শিক্ষক-শিক্ষিকা কর্ণার</div>
+<div class="teacher-card-container">
+  <div class="teacher-track"  id="teacherTrack">
 
-    <div class="info-card exam-card">
-        <div class="card-title">পরীক্ষার রুটিন</div>
-        <div class="card-details">
-            <div class="exam-schedule">
-                <div class="exam-row">
-                    <span class="exam-date">২৫ ডিসেম্বর</span>
-                    <span class="exam-subject">বাংলা</span>
-                    <span class="exam-time">সকাল ৯টা</span>
-                </div>
-                <div class="exam-row">
-                    <span class="exam-date">২৭ ডিসেম্বর</span>
-                    <span class="exam-subject">গণিত</span>
-                    <span class="exam-time">সকাল ৯টা</span>
-                </div>
-                <div class="exam-row">
-                    <span class="exam-date">২৯ ডিসেম্বর</span>
-                    <span class="exam-subject">ইংরেজি</span>
-                    <span class="exam-time">সকাল ৯টা</span>
-                </div>
-            </div>
-        </div>
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/21.jpg" alt="Teacher">
+      <h4>মোহাম্মদ মোশারফ হোসেন</h4>
+      <p>প্রধান শিক্ষক</p>
     </div>
 
-    <div class="info-card result-card">
-        <div class="card-title">রেজাল্ট</div>
-        <div class="card-details">
-            <div class="result-stats">
-                <div class="result-item">
-                    <div class="result-label">পাস</div>
-                    <div class="result-number">৯৮%</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-label">জিপিএ-৫</div>
-                    <div class="result-number">৮৫</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-label">মোট ছাত্র</div>
-                    <div class="result-number">৩৫০</div>
-                </div>
-            </div>
-        </div>
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/8.jpg" alt="Teacher">
+      <h4>মোঃ আনোয়ারুল হক</h4>
+      <p>সহকারী প্রধান শিক্ষক</p>
     </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/15_1.jpg" alt="Teacher">
+      <h4>মোসাম্মাৎ শারমিন আক্তার</h4>
+      <p>সহকারী শিক্ষক (গার্হস্থ্য বিজ্ঞান)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/111.jpg" alt="Teacher">
+      <h4>ফাতেহা খান</h4>
+      <p>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/laboni.png" alt="Teacher">
+      <h4>লাবনী সুলতানা</h4>
+      <p>সহকারী শিক্ষক (ইংরেজি)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/10.jpg" alt="Teacher">
+      <h4>আমেনা আক্তার</h4>
+      <p>সহকারী শিক্ষক (ইংরেজি)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/9.jpg" alt="Teacher">
+      <h4>মোঃ নাজমুল হোসেন</h4>
+      <p>সহকারী শিক্ষক (গণিত ও বিজ্ঞান)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/17.jpg" alt="Teacher">
+      <h4>মোহাম্মদ মনির হোসেন</h4>
+      <p>সহকারী শিক্ষক (কম্পিউটার)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/shila.png" alt="Teacher">
+      <h4>শিলা বেগম</h4>
+      <p>সহকারী শিক্ষক</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/6.jpg" alt="Teacher">
+      <h4>সিরাজুল ইসলাম</h4>
+      <p>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/15.jpg" alt="Teacher">
+      <h4>তাহনিয়া আক্তার</h4>
+      <p>সহকারী শিক্ষক (বাংলা)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/2.jpg" alt="Teacher">
+      <h4>কামরুন নাহার লায়লা</h4>
+      <p>সহকারী শিক্ষক (গণিত)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/14.jpg" alt="Teacher">
+      <h4>মোসাঃ রাহিমা ছিদ্দিকা</h4>
+      <p>সহকারী শিক্ষক (সমাজ বিজ্ঞান)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/jahirul.png" alt="Teacher">
+      <h4>জহিরুল আলম</h4>
+      <p>সহকারী শিক্ষক (বাংলা)</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/arif.png" alt="Teacher">
+      <h4>Md. Ariful Islam</h4>
+      <p>Asst. Teacher</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/rana_sir.png" alt="Teacher">
+      <h4>Md. Aslam Chowdhury Rana</h4>
+      <p>Asst. Teacher</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/mohsin.png" alt="Teacher">
+      <h4>Md. Mohsin Alam</h4>
+      <p>Asst. Teacher</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/munira.png" alt="Teacher">
+      <h4>Monira Akter Kona</h4>
+      <p>Asst. Teacher</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/min.png" alt="Teacher">
+      <h4>Md. Minto Ahmad</h4>
+      <p>Office Asst.</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/download.jpg" alt="Teacher">
+      <h4>Mahmudur Rahman</h4>
+      <p>Computer Lab Operator</p>
+    </div>
+
+    <div class="teacher-card">
+      <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/523102875_1374350273668641_1213836246856392643_n.jpg" alt="Teacher">
+      <h4>Md. Abumusa</h4>
+      <p>Asst. Teacher</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="faculty-heading">শিক্ষক-শিক্ষিকা কর্ণার</div>
+
+<table class="faculty-table" id="facultyList">
+  <thead>
+    <tr>
+      <th>ক্রম</th>
+      <th>নাম</th>
+      <th>পদবী</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="faculty-row">
+      <td>১</td>
+      <td>মোহাম্মদ মোশারফ হোসেন</td>
+      <td>প্রধান শিক্ষক</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>২</td>
+      <td>মোঃ আনোয়ারুল হক</td>
+      <td>সহকারী প্রধান শিক্ষক</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>৩</td>
+      <td>মোসাম্মাৎ শারমিন আক্তার</td>
+      <td>সহকারী শিক্ষক (গার্হস্থ্য বিজ্ঞান)</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>৪</td>
+      <td>ফাতেহা খান</td>
+      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>৫</td>
+      <td>লাবনী সুলতানা</td>
+      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+    </tr>
+
+    <!-- hidden rows for details -->
+    <tr class="faculty-row hidden">
+      <td>৬</td>
+      <td>আমেনা আক্তার</td>
+      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৭</td>
+      <td>মোঃ নাজমুল হোসেন</td>
+      <td>সহকারী শিক্ষক (গণিত ও বিজ্ঞান)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৮</td>
+      <td>মোহাম্মদ মনির হোসেন</td>
+      <td>সহকারী শিক্ষক (কম্পিউটার)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৯</td>
+      <td>শিলা বেগম</td>
+      <td>সহকারী শিক্ষক</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>১০</td>
+      <td>সিরাজুল ইসলাম</td>
+      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" class="toggle-row" id="toggleBtn">বিস্তারিত দেখুন</td>
+    </tr>
+  </tfoot>
+</table>
+
 </div>
 
         <!-- Dynamic Calendar -->
@@ -794,7 +1282,7 @@
         </ul> 
         <ul class="footer-menu">
             <li>Developed By</li>
-           <img src="techshilpo.png">
+           <a href="https://techshilpo.com"><img src="techshilpo.png"></a>
         </ul> 
     </div>
 </footer>
@@ -1053,6 +1541,100 @@ if (typeof module !== 'undefined' && module.exports) {
         fadeIn
     };
 }
+
+</script>
+<script>
+const wrapper = document.querySelector(".notice-wrapper");
+let items = document.querySelectorAll(".notice-item");
+const noticeHeight = 80;
+const visibleCount = 3;
+let filled = 0;
+
+function typeWriterEffect(item, callback) {
+  const textElement = item.querySelector(".notice-text");
+  const fullText = textElement.getAttribute("data-fulltext") || textElement.textContent;
+  textElement.setAttribute("data-fulltext", fullText);
+  textElement.textContent = "";
+  let i = 0;
+  item.style.opacity = 1; // show item
+
+  function typing() {
+    if (i < fullText.length) {
+      textElement.textContent += fullText.charAt(i);
+      i++;
+      setTimeout(typing, 50);
+    } else {
+      setTimeout(callback, 1500);
+    }
+  }
+  typing();
+}
+
+function processNotices() {
+  if (filled < visibleCount) {
+    // filling first 3 slots
+    typeWriterEffect(items[filled], () => {
+      filled++;
+      processNotices();
+    });
+  } else {
+    // after filled, rotate continuously
+    wrapper.style.transform = `translateY(-${noticeHeight}px)`;
+
+    setTimeout(() => {
+      wrapper.appendChild(wrapper.firstElementChild);
+      wrapper.style.transition = "none";
+      wrapper.style.transform = "translateY(0)";
+      wrapper.offsetHeight; // force reflow
+      wrapper.style.transition = "transform 0.6s ease-in-out";
+
+      items = document.querySelectorAll(".notice-item");
+      const lastVisible = items[visibleCount - 1];
+      typeWriterEffect(lastVisible, processNotices);
+    }, 600);
+  }
+}
+
+// start from blank
+processNotices();
+</script>
+<script>
+  const track = document.getElementById("teacherTrack");
+  const cards = Array.from(track.children);
+
+  // duplicate all cards once for smooth infinite effect
+  cards.forEach(card => {
+    let clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  let position = 0;
+  const speed = 1; // adjust speed (px per frame)
+
+  function scrollCards() {
+    position -= speed;
+    // reset when half of track is gone (because we duplicated cards)
+    if (Math.abs(position) >= track.scrollWidth / 2) {
+      position = 0;
+    }
+    track.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(scrollCards);
+  }
+
+  scrollCards();
+</script>
+<script>
+    const toggleBtn = document.getElementById("toggleBtn");
+const hiddenRows = document.querySelectorAll(".faculty-row.hidden");
+let expanded = false;
+
+toggleBtn.addEventListener("click", () => {
+  expanded = !expanded;
+  hiddenRows.forEach(row => {
+    row.style.display = expanded ? "table-row" : "none";
+  });
+  toggleBtn.innerText = expanded ? "অল্প দেখুন" : "বিস্তারিত দেখুন";
+});
 
 </script>
 </html>
