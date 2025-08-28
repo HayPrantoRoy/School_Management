@@ -837,8 +837,25 @@ header::before {
             padding: 10px 0;
         }
 
-        
+       .quoteContentText {
+  max-height: 6.5em; /* প্রায় ৪ লাইন */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease;
+  line-height: 1.6em;
+}
 
+.quoteContentText.expanded {
+  max-height: 1000px; /* expand হলে পুরো দেখা যাবে */
+}
+
+.seeMoreInline {
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 5px;
+}
 </style>
 </head>
 <body>
@@ -912,13 +929,13 @@ header::before {
             <span class="dot" onclick="currentSlide(3)"></span>
             <span class="dot" onclick="currentSlide(4)"></span>
         </div>
-        <h2>স্কুল ইতিহাস</h2>
+       <!-- <h2>স্কুল ইতিহাস</h2>
         <div class="title-underline"></div>
         <p style="font-size:16px;">স্কুলের ইতিহাস মানব সভ্যতার অগ্রযাত্রার এক দীর্ঘ ও গুরুত্বপূর্ণ অধ্যায়। প্রাচীনকালে বাংলার শিক্ষাব্যবস্থা মূলত গুরুগৃহ, পাঠশালা, টোল ও মাদ্রাসা ভিত্তিক ছিল, যেখানে শিক্ষার্থীরা গুরুজনের তত্ত্বাবধানে বসে ধর্মীয় শিক্ষা, নৈতিকতা, সাহিত্য, গণিত, জ্যোতির্বিজ্ঞান ও প্রাকৃতিক বিদ্যা শিখত। সেই সময়ে শিক্ষার মাধ্যম ছিল মুখস্থ পদ্ধতি¹, হাতে লিখে অনুশীলন এবং শৃঙ্খলা ও চরিত্র গঠনের ওপর বিশেষ গুরুত্ব দেওয়া হতো।বাংলায় আধুনিক স্কুল ব্যবস্থার সূচনা ঘটে ব্রিটিশ শাসনামলে। বিশেষ করে ১৮৩৫ সালে লর্ড ম্যাকলে ইংরেজি শিক্ষানীতি চালু করলে দেশব্যাপী আধুনিক ধাঁচের স্কুল ও কলেজ প্রতিষ্ঠিত হয়। তখন ইংরেজি ভাষার পাশাপাশি বিজ্ঞান, ভূগোল, ইতিহাস, গণিত এবং অর্থনীতির মতো আধুনিক বিষয়গুলো পাঠ্যসূচিতে অন্তর্ভুক্ত হয়। উনিশ শতকের শেষভাগে বাংলার অনেক শিক্ষানুরাগী ব্যক্তি ও সংগঠন স্কুল প্রতিষ্ঠায় গুরুত্বপূর্ণ ভূমিকা রাখেন, যার মধ্যে ঈশ্বরচন্দ্র বিদ্যাসাগর নারীশিক্ষা ও প্রাথমিক শিক্ষা বিস্তারে অসামান্য অবদান রাখেন।
-</p>
+</p>-->
 <div id="educationPageBody">
     <div class="teacherQuotesMainWrapper">
-        <h1 class="sectionHeaderTitle">শিক্ষকদের অনুপ্রেরণামূলক বার্তা</h1>
+       <!--<h1 class="sectionHeaderTitle">শিক্ষকদের অনুপ্রেরণামূলক বার্তা</h1>--> 
         
         <div class="quotesFlexContainer">
             <div class="individualQuoteWrapper" id="headTeacherQuoteBox">
@@ -944,9 +961,6 @@ header::before {
                     <span class="rightQuotationMark">"</span>
                 </div>
             </div> 
-        </div> <br>
-
-        <div class="quotesFlexContainer">
             <div class="individualQuoteWrapper" id="headTeacherQuoteBox">
                 <div class="educatorProfileHeader">
                     <img src="https://jalkurihighschoolandcollege.edu.bd/upload/client_feedback/8.jpg" alt="প্রধান শিক্ষক" class="profileImageCircle">
@@ -963,12 +977,84 @@ header::before {
                     <span class="rightQuotationMark">"</span>
                 </div>
             </div>
+        </div> <br>
 
-           
-        </div>
+
     </div>
 </div>
 
+<div class="faculty-heading">শিক্ষক-শিক্ষিকা কর্ণার</div>
+
+<table class="faculty-table" id="facultyList">
+  <thead>
+    <tr>
+      <th>ক্রম</th>
+      <th>নাম</th>
+      <th>পদবী</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="faculty-row">
+      <td>১</td>
+      <td>মোহাম্মদ মোশারফ হোসেন</td>
+      <td>প্রধান শিক্ষক</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>২</td>
+      <td>মোঃ আনোয়ারুল হক</td>
+      <td>সহকারী প্রধান শিক্ষক</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>৩</td>
+      <td>মোসাম্মাৎ শারমিন আক্তার</td>
+      <td>সহকারী শিক্ষক (গার্হস্থ্য বিজ্ঞান)</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>৪</td>
+      <td>ফাতেহা খান</td>
+      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+    </tr>
+    <tr class="faculty-row">
+      <td>৫</td>
+      <td>লাবনী সুলতানা</td>
+      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+    </tr>
+
+    <!-- hidden rows for details -->
+    <tr class="faculty-row hidden">
+      <td>৬</td>
+      <td>আমেনা আক্তার</td>
+      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৭</td>
+      <td>মোঃ নাজমুল হোসেন</td>
+      <td>সহকারী শিক্ষক (গণিত ও বিজ্ঞান)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৮</td>
+      <td>মোহাম্মদ মনির হোসেন</td>
+      <td>সহকারী শিক্ষক (কম্পিউটার)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৯</td>
+      <td>শিলা বেগম</td>
+      <td>সহকারী শিক্ষক</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>১০</td>
+      <td>সিরাজুল ইসলাম</td>
+      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" class="toggle-row" id="toggleBtn">বিস্তারিত দেখুন</td>
+    </tr>
+  </tfoot>
+</table>
+
+</div>
     </div>
 
     <!-- Right Column -->
@@ -1135,78 +1221,33 @@ header::before {
   </div>
 </div>
 
-<div class="faculty-heading">শিক্ষক-শিক্ষিকা কর্ণার</div>
+<div class="faculty-heading">গুরুত্বপূর্ণ লিঙ্ক</div>
 
 <table class="faculty-table" id="facultyList">
-  <thead>
-    <tr>
-      <th>ক্রম</th>
-      <th>নাম</th>
-      <th>পদবী</th>
-    </tr>
-  </thead>
   <tbody>
     <tr class="faculty-row">
-      <td>১</td>
-      <td>মোহাম্মদ মোশারফ হোসেন</td>
-      <td>প্রধান শিক্ষক</td>
+      <td><a href="https://bangladesh.gov.bd" target="_blank" style="text-decoration:none; color:#000;">জাতীয় তথ্য বাতায়ন</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>২</td>
-      <td>মোঃ আনোয়ারুল হক</td>
-      <td>সহকারী প্রধান শিক্ষক</td>
+      <td><a href="https://moedu.gov.bd" target="_blank" style="text-decoration:none; color:#000;">শিক্ষা মন্ত্রণালয়</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>৩</td>
-      <td>মোসাম্মাৎ শারমিন আক্তার</td>
-      <td>সহকারী শিক্ষক (গার্হস্থ্য বিজ্ঞান)</td>
+      <td><a href="https://mopme.gov.bd" target="_blank" style="text-decoration:none; color:#000;">প্রাথমিক ও গণশিক্ষা মন্ত্রণালয়</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>৪</td>
-      <td>ফাতেহা খান</td>
-      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+      <td><a href="https://dpe.gov.bd" target="_blank" style="text-decoration:none; color:#000;">প্রাথমিক শিক্ষা অধিদপ্তর</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>৫</td>
-      <td>লাবনী সুলতানা</td>
-      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+      <td><a href="https://dshe.gov.bd" target="_blank" style="text-decoration:none; color:#000;">মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর</a></td>
     </tr>
-
-    <!-- hidden rows for details -->
-    <tr class="faculty-row hidden">
-      <td>৬</td>
-      <td>আমেনা আক্তার</td>
-      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+    <tr class="faculty-row">
+      <td><a href="https://cabinet.gov.bd" target="_blank" style="text-decoration:none; color:#000;">মন্ত্রিপরিষদ বিভাগ</a></td>
     </tr>
-    <tr class="faculty-row hidden">
-      <td>৭</td>
-      <td>মোঃ নাজমুল হোসেন</td>
-      <td>সহকারী শিক্ষক (গণিত ও বিজ্ঞান)</td>
-    </tr>
-    <tr class="faculty-row hidden">
-      <td>৮</td>
-      <td>মোহাম্মদ মনির হোসেন</td>
-      <td>সহকারী শিক্ষক (কম্পিউটার)</td>
-    </tr>
-    <tr class="faculty-row hidden">
-      <td>৯</td>
-      <td>শিলা বেগম</td>
-      <td>সহকারী শিক্ষক</td>
-    </tr>
-    <tr class="faculty-row hidden">
-      <td>১০</td>
-      <td>সিরাজুল ইসলাম</td>
-      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+    <tr class="faculty-row">
+      <td><a href="https://finance.gov.bd" target="_blank" style="text-decoration:none; color:#000;">অর্থ মন্ত্রণালয়</a></td>
     </tr>
   </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3" class="toggle-row" id="toggleBtn">বিস্তারিত দেখুন</td>
-    </tr>
-  </tfoot>
 </table>
-
-</div>
 
         <!-- Dynamic Calendar -->
         <div class="calendar">
@@ -1227,7 +1268,7 @@ header::before {
         <!-- Attendance Section -->
         
 
-        <!-- Location Section -->
+        <!-- Location Section 
         <div class="location-section">
    
     <div class="location-content">
@@ -1244,7 +1285,7 @@ header::before {
         </div>
         <p>School Location</p>
     </div>
-</div>
+</div>-->
 
 
         <!-- Visitors Counter -->
@@ -1287,6 +1328,32 @@ header::before {
     </div>
 </footer>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quotes = document.querySelectorAll(".quoteContentText");
+
+  quotes.forEach((quote) => {
+    // "আরও পড়ুন" span বানানো
+    const seeMore = document.createElement("span");
+    seeMore.className = "seeMoreInline";
+    seeMore.innerText = "আরও পড়ুন...";
+
+    // quote এর পরে বসানো
+    quote.insertAdjacentElement("afterend", seeMore);
+
+    // toggle system
+    seeMore.addEventListener("click", function () {
+      if (quote.classList.contains("expanded")) {
+        quote.classList.remove("expanded");
+        seeMore.innerText = "আরও পড়ুন...";
+      } else {
+        quote.classList.add("expanded");
+        seeMore.innerText = "কম দেখুন";
+      }
+    });
+  });
+});
+</script>
 <script>
     // Global Variables
 let slideIndex = 0;
