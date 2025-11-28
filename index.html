@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>School Management System</title>
 <link rel="icon" href="logo.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css2?family=Kalpurush:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,6 +21,35 @@
 
 }
 
+html, body {
+    width: 100%;
+    overflow-x: auto;
+}
+
+header {
+    min-width: 1200px;
+}
+
+nav {
+    min-width: 1200px;
+}
+
+.nav-container {
+    min-width: 1200px;
+}
+
+.news-bar {
+    min-width: 1200px;
+}
+
+footer {
+    min-width: 1200px;
+}
+
+main {
+    min-width: 1200px;
+}
+
 header {
   position: relative;
    width: 100%;                /* full width */
@@ -30,6 +59,11 @@ header {
   border-bottom: 2px solid #e0e0e0;
   overflow: hidden;
   color: #fff;
+}
+@media only screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    header {
+        height: 20vh; /* Height for Android devices */
+    }
 }
 
 /* Blurred background */
@@ -47,9 +81,6 @@ header::before {
   width: 800px;          /* example */
   margin-left: calc(100% - 750px - 200px); /* 200px from right */
 }
-
-
-
 
 .logo-area img {
   width: 150px;
@@ -160,7 +191,7 @@ header::before {
         max-width:1200px;
         margin:20px auto;
     }
-    .left-col {flex:2;}
+    .left-col {flex:1.3;}
     
     /* Image Slider */
     .image-slider {
@@ -237,7 +268,7 @@ header::before {
     }
     .left-col p {line-height:1.7;}
 .info-card {
-  margin-bottom: 12px;
+  margin-bottom: 22px;
   background: white;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
@@ -259,7 +290,7 @@ header::before {
   background: #fafafa;
   border-radius: 0 0 8px 8px;
   overflow: hidden;
-  height: 240px; /* 3 slots */
+  height: 320px; /* 4 slots */
   position: relative;
 }
 
@@ -268,7 +299,7 @@ header::before {
 }
 
 .notice-item {
-  min-height: 80px;
+  min-height: 82px;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
   opacity: 0; /* hidden at start */
@@ -374,7 +405,6 @@ header::before {
     color: #666;
     font-size: 13px;
 }
-
 
     /* Calendar */
     .calendar {
@@ -512,7 +542,6 @@ header::before {
         flex-wrap: wrap;
     }
     .footer-left {
-        
         align-items: center;
     }
     .footer-left img {
@@ -560,17 +589,14 @@ header::before {
         width: 120px;
     }
 
-    /* Responsive */
-    
-
-     .right-col {flex:1;}
+    .right-col {flex:1;}
 
    .teacher-card-container {
   overflow: hidden;
   background: #f8f8f8;
   border-radius: 8px;
   padding: 15px 0;
-  width: 420px;   /* fixed width */
+  width: 500px;
   position: relative;
 }
 
@@ -614,44 +640,6 @@ header::before {
 .teacher-card p {
   font-size: 13px;
   color: #666;
-}
-
-.faculty-heading {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 15px 0;
-  color: #333;
-  text-align: center;
-}
-
-.faculty-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 10px 0;
-  font-size: 15px;
-  background: #fff;
-  border: 1px solid #ccc;
-}
-
-.faculty-table th, 
-.faculty-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-.faculty-table th {
-  background: #f4f4f4;
-  color: #222;
-  font-weight: bold;
-}
-
-.faculty-table tr:nth-child(even) {
-  background: #fafafa;
-}
-
-.faculty-table tr:hover {
-  background: #f1f7ff;
 }
 
 .faculty-heading {
@@ -754,11 +742,7 @@ header::before {
             padding: 35px;
             position: relative;
             transition: all 0.3s ease;
-            
         }
-
-
-
 
         .educatorProfileHeader {
             display: flex;
@@ -838,7 +822,7 @@ header::before {
         }
 
        .quoteContentText {
-  max-height: 6.5em; /* প্রায় ৪ লাইন */
+  max-height: 6.5em;
   overflow: hidden;
   position: relative;
   transition: max-height 0.5s ease;
@@ -846,7 +830,7 @@ header::before {
 }
 
 .quoteContentText.expanded {
-  max-height: 1000px; /* expand হলে পুরো দেখা যাবে */
+  max-height: 1000px;
 }
 
 .seeMoreInline {
@@ -901,7 +885,7 @@ header::before {
 
 <!-- News Bar -->
 <div class="news-bar">
-    <div class="news-title">নোটিশ বোর্ড</div>
+    <div class="news-title">সর্বশেষ সংবাদ</div>
     <div class="news-text" id="typewriter"></div>
 </div>
 
@@ -949,7 +933,7 @@ header::before {
                 <div class="inspirationalQuoteText">
                     <span class="leftQuotationMark">"</span>
                     <div class="quoteContentText">
-                       মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর, ঢাকা, বাংলাদেশ কর্তৃক নির্দেশক্রমে অত্র বিদ্যালয়ের জন্য অতি অল্প সময়ে ডাইনামিক ওয়েভ সাইট তৈরি হয়েছে শুনে আমি মহান আল্লাহ তালার দরবারে শুকরিয়া আদায় করছি। বর্তমান সময়ে তথ্য ও প্রযুক্তি আমাদের হাতের নাগালে। দৈনন্দিন জীবনে লেনদেন, হিসাব-নিকাশ, লেখাপড়া, শিক্ষা-দীক্ষা, আদান-প্রদানসহ সকল প্রকার ব্যবস্থাপনা প্রশাসনিক ও একাডেমিক সব কিছুই তথ্য ও প্রযুক্তির আওতাধীন। জালকুড়ি হাই স্কুল এন্ড কলেজ এর নিজস্ব ওয়েভ সাইট থাকার কারণে ছাত্র, শিক্ষক, অভিভাবক, গভর্নিং বডি, এলাকাবাসী এবং শিক্ষার সাথে সংশ্লিষ্ট সকল মহল ও দপ্তর উপকৃত হবে। এতে শিখন-শিখানো আরও অধিক ফলপ্রসু হবে এবং বিদ্যালয়ের সকল কার্যক্রমে আরো অধিক স্বচ্ছতা ও জবাবদিহিতা নিশ্চিত হবে বলে আমি আশাবাদী। শিক্ষা প্রতিষ্ঠানের সকল প্রকার তথ্যবলী অতি সহজে সকলের দৃষ্টি গোচর হবে। স্বল্পসময়ে  বিদ্যালায়ের ইতিহাস, ছাত্র, শিক্ষক শিক্ষিকাদের তথ্য, সকল পরীক্ষার ফলাফল, বিভিন্ন পর্যায়ে প্রতিষ্ঠনের অর্জন ও প্রতিষ্ঠানের যাবতীয় তথ্য অত্র শিক্ষা প্রতিষ্ঠানের ওয়েব সাইটের মাধ্যমে জানতে পারবে. ডিজিটালাইজেশনের এ যুগে ওয়েব সাইটের বিকল্প নেই। 
+                       মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর, ঢাকা, বাংলাদেশ কর্তৃক নির্দেশক্রমে অত্র বিদ্যালয়ের জন্য অতি অল্প সময়ে ডাইনামিক ওয়েভ সাইট তৈরি হয়েছে শুনে আমি মহান আল্লাহ তালার দরবারে শুকরিয়া আদায় করছি। বর্তমান সময়ে তথ্য ও প্রযুক্তি আমাদের হাতের নাগালে। দৈনন্দিন জীবনে লেনদেন, হিসাব-নিকাশ, লেখাপড়া, শিক্ষা-দীক্ষা, আদান-প্রদানসহ সকল প্রকার ব্যবস্থাপনা প্রশাসনিক ও একাডেমিক সব কিছুই তথ্য ও প্রযুক্তির আওতাধীন। জালকুড়ি হাই স্কুল এন্ড কলেজ এর নিজস্ব ওয়েভ সাইট থাকার কারণে ছাত্র, শিক্ষক, অভিভাবক, গভর্নিং বডি, এলাকাবাসী এবং শিক্ষার সাথে সংশ্লিষ্ট সকল মহল ও দপ্তর উপকৃত হবে। এতে শিখন-শিখানো আরও অধিক ফলপ্রসু হবে এবং বিদ্যালয়ের সকল কার্যক্রমে আরো অধিক স্বচ্ছতা ও জবাবদিহিতা নিশ্চিত হবে বলে আমি আশাবাদী। শিক্ষা প্রতিষ্ঠানের সকল প্রকার তথ্যবলী অতি সহজে সকলের দৃষ্টি গোচর হবে। স্বল্পসময়ে  বিদ্যালয়ের ইতিহাস, ছাত্র, শিক্ষক শিক্ষিকাদের তথ্য, সকল পরীক্ষার ফলাফল, বিভিন্ন পর্যায়ে প্রতিষ্ঠনের অর্জন ও প্রতিষ্ঠানের যাবতীয় তথ্য অত্র শিক্ষা প্রতিষ্ঠানের ওয়েব সাইটের মাধ্যমে জানতে পারবে. ডিজিটালাইজেশনের এ যুগে ওয়েব সাইটের বিকল্প নেই। 
  
 আমি জালকুড়ি হাই স্কুল এন্ড কলেজ এর সর্বাঙ্গীন সাফল্য কামনা করছি।
 
@@ -983,75 +967,32 @@ header::before {
     </div>
 </div>
 
-<div class="faculty-heading">শিক্ষক-শিক্ষিকা কর্ণার</div>
+<div class="faculty-heading">গুরুত্বপূর্ণ লিঙ্ক</div>
 
 <table class="faculty-table" id="facultyList">
-  <thead>
-    <tr>
-      <th>ক্রম</th>
-      <th>নাম</th>
-      <th>পদবী</th>
-    </tr>
-  </thead>
   <tbody>
     <tr class="faculty-row">
-      <td>১</td>
-      <td>মোহাম্মদ মোশারফ হোসেন</td>
-      <td>প্রধান শিক্ষক</td>
+      <td><a href="https://bangladesh.gov.bd" target="_blank" style="text-decoration:none; color:#000;">জাতীয় তথ্য বাতায়ন</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>২</td>
-      <td>মোঃ আনোয়ারুল হক</td>
-      <td>সহকারী প্রধান শিক্ষক</td>
+      <td><a href="https://moedu.gov.bd" target="_blank" style="text-decoration:none; color:#000;">শিক্ষা মন্ত্রণালয়</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>৩</td>
-      <td>মোসাম্মাৎ শারমিন আক্তার</td>
-      <td>সহকারী শিক্ষক (গার্হস্থ্য বিজ্ঞান)</td>
+      <td><a href="https://mopme.gov.bd" target="_blank" style="text-decoration:none; color:#000;">প্রাথমিক ও গণশিক্ষা মন্ত্রণালয়</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>৪</td>
-      <td>ফাতেহা খান</td>
-      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+      <td><a href="https://dpe.gov.bd" target="_blank" style="text-decoration:none; color:#000;">প্রাথমিক শিক্ষা অধিদপ্তর</a></td>
     </tr>
     <tr class="faculty-row">
-      <td>৫</td>
-      <td>লাবনী সুলতানা</td>
-      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+      <td><a href="https://dshe.gov.bd" target="_blank" style="text-decoration:none; color:#000;">মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর</a></td>
     </tr>
-
-    <!-- hidden rows for details -->
-    <tr class="faculty-row hidden">
-      <td>৬</td>
-      <td>আমেনা আক্তার</td>
-      <td>সহকারী শিক্ষক (ইংরেজি)</td>
+    <tr class="faculty-row">
+      <td><a href="https://cabinet.gov.bd" target="_blank" style="text-decoration:none; color:#000;">মন্ত্রিপরিষদ বিভাগ</a></td>
     </tr>
-    <tr class="faculty-row hidden">
-      <td>৭</td>
-      <td>মোঃ নাজমুল হোসেন</td>
-      <td>সহকারী শিক্ষক (গণিত ও বিজ্ঞান)</td>
-    </tr>
-    <tr class="faculty-row hidden">
-      <td>৮</td>
-      <td>মোহাম্মদ মনির হোসেন</td>
-      <td>সহকারী শিক্ষক (কম্পিউটার)</td>
-    </tr>
-    <tr class="faculty-row hidden">
-      <td>৯</td>
-      <td>শিলা বেগম</td>
-      <td>সহকারী শিক্ষক</td>
-    </tr>
-    <tr class="faculty-row hidden">
-      <td>১০</td>
-      <td>সিরাজুল ইসলাম</td>
-      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
+    <tr class="faculty-row">
+      <td><a href="https://finance.gov.bd" target="_blank" style="text-decoration:none; color:#000;">অর্থ মন্ত্রণালয়</a></td>
     </tr>
   </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3" class="toggle-row" id="toggleBtn">বিস্তারিত দেখুন</td>
-    </tr>
-  </tfoot>
 </table>
 
 </div>
@@ -1078,8 +1019,16 @@ header::before {
         <div class="notice-text">ক্রীড়া প্রতিযোগিতার ফলাফল প্রকাশ</div>
       </div>
       <div class="notice-item">
-        <div class="notice-date">১০ ডিসেম্বর ২০২৫</div>
+        <div class="notice-date">১০ ডিসেম্বর ২0২৫</div>
         <div class="notice-text">শীতকালীন ছুটির বিজ্ঞপ্তি</div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-date">০৮ ডিসেম্বর ২0২৫</div>
+        <div class="notice-text">অনলাইন ভর্তি ফর্ম জমা দেওয়ার সময়সীমা বৃদ্ধি</div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-date">০১ জানুয়ারি ২০২৬</div>
+        <div class="notice-text">নতুন একাডেমিক সেশন শুরু হওয়ার বিজ্ঞপ্তি</div>
       </div>
     </div>
   </div>
@@ -1221,32 +1170,75 @@ header::before {
   </div>
 </div>
 
-<div class="faculty-heading">গুরুত্বপূর্ণ লিঙ্ক</div>
+<div class="faculty-heading">শিক্ষক-শিক্ষিকা কর্ণার</div>
 
 <table class="faculty-table" id="facultyList">
+  <thead>
+    <tr>
+      <th>ক্রম</th>
+      <th>নাম</th>
+      <th>পদবী</th>
+    </tr>
+  </thead>
   <tbody>
     <tr class="faculty-row">
-      <td><a href="https://bangladesh.gov.bd" target="_blank" style="text-decoration:none; color:#000;">জাতীয় তথ্য বাতায়ন</a></td>
+      <td>১</td>
+      <td>মোহাম্মদ মোশারফ হোসেন</td>
+      <td>প্রধান শিক্ষক</td>
     </tr>
     <tr class="faculty-row">
-      <td><a href="https://moedu.gov.bd" target="_blank" style="text-decoration:none; color:#000;">শিক্ষা মন্ত্রণালয়</a></td>
+      <td>২</td>
+      <td>মোঃ আনোয়ারুল হক</td>
+      <td>সহকারী প্রধান শিক্ষক</td>
     </tr>
     <tr class="faculty-row">
-      <td><a href="https://mopme.gov.bd" target="_blank" style="text-decoration:none; color:#000;">প্রাথমিক ও গণশিক্ষা মন্ত্রণালয়</a></td>
+      <td>৩</td>
+      <td>মোসাম্মাৎ শারমিন আক্তার</td>
+      <td>সহকারী শিক্ষক (গার্হস্থ্য বিজ্ঞান)</td>
     </tr>
     <tr class="faculty-row">
-      <td><a href="https://dpe.gov.bd" target="_blank" style="text-decoration:none; color:#000;">প্রাথমিক শিক্ষা অধিদপ্তর</a></td>
+      <td>৪</td>
+      <td>ফাতেহা খান</td>
+      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
     </tr>
     <tr class="faculty-row">
-      <td><a href="https://dshe.gov.bd" target="_blank" style="text-decoration:none; color:#000;">মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর</a></td>
+      <td>৫</td>
+      <td>লাবনী সুলতানা</td>
+      <td>সহকারী শিক্ষক (ইংরেজি)</td>
     </tr>
-    <tr class="faculty-row">
-      <td><a href="https://cabinet.gov.bd" target="_blank" style="text-decoration:none; color:#000;">মন্ত্রিপরিষদ বিভাগ</a></td>
+
+    <!-- hidden rows for details -->
+    <tr class="faculty-row hidden">
+      <td>৬</td>
+      <td>আমেনা আক্তার</td>
+      <td>সহকারী শিক্ষক (ইংরেজি)</td>
     </tr>
-    <tr class="faculty-row">
-      <td><a href="https://finance.gov.bd" target="_blank" style="text-decoration:none; color:#000;">অর্থ মন্ত্রণালয়</a></td>
+    <tr class="faculty-row hidden">
+      <td>৭</td>
+      <td>মোঃ নাজমুল হোসেন</td>
+      <td>সহকারী শিক্ষক (গণিত ও বিজ্ঞান)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৮</td>
+      <td>মোহাম্মদ মনির হোসেন</td>
+      <td>সহকারী শিক্ষক (কম্পিউটার)</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>৯</td>
+      <td>শিলা বেগম</td>
+      <td>সহকারী শিক্ষক</td>
+    </tr>
+    <tr class="faculty-row hidden">
+      <td>১০</td>
+      <td>সিরাজুল ইসলাম</td>
+      <td>সহকারী শিক্ষক (ব্যবসায় শিক্ষা)</td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" class="toggle-row" id="toggleBtn">বিস্তারিত দেখুন</td>
+    </tr>
+  </tfoot>
 </table>
 
         <!-- Dynamic Calendar -->
@@ -1614,7 +1606,7 @@ if (typeof module !== 'undefined' && module.exports) {
 const wrapper = document.querySelector(".notice-wrapper");
 let items = document.querySelectorAll(".notice-item");
 const noticeHeight = 80;
-const visibleCount = 3;
+const visibleCount = 4;
 let filled = 0;
 
 function typeWriterEffect(item, callback) {
