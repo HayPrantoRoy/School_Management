@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
 <title>School Management System</title>
 <link rel="icon" href="logo.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css2?family=Kalpurush:wght@400;500;600&display=swap" rel="stylesheet">
@@ -60,9 +60,25 @@ header {
   overflow: hidden;
   color: #fff;
 }
+
+/* Small Android devices (phones) */
+@media only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+    header {
+        height: 25vh; /* Height for small Android phones */
+    }
+}
+
+/* Medium Android devices (tablets) */
 @media only screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
     header {
-        height: 20vh; /* Height for Android devices */
+        height: 20vh; /* Height for Android tablets */
+    }
+}
+
+/* Large Android devices */
+@media only screen and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    header {
+        height: 22vh; /* Height for large Android devices */
     }
 }
 
